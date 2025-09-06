@@ -1,52 +1,48 @@
-Word Ladder Generator
+# Word Ladder Generator  
 
-This project implements a Word Ladder Generator in C. A word ladder is a sequence of words where each word differs from the previous one by exactly one letter. The goal is to transform a given start word into a final word using the shortest possible sequence of valid dictionary words.
+This project implements a **Word Ladder Generator** in C. A *word ladder* is a sequence of words where each word differs from the previous one by exactly one letter. The goal is to transform a given start word into a final word using the shortest possible sequence of valid dictionary words.  
 
-The project includes:
+The project includes:  
+- Core data structures (`WordNode`, `LadderNode`) for representing ladders and lists of ladders.  
+- A breadth-first search (BFS) algorithm to find the shortest word ladder.  
+- Utility functions for word handling, binary search, ladder copying, and memory management.  
+- Built-in test functions for verifying correctness of core components.  
+- A simple command-line interface for interactive use.  
 
-Core data structures (WordNode, LadderNode) for representing ladders and lists of ladders.
+---
 
-A breadth-first search (BFS) algorithm to find the shortest word ladder.
+## Features  
+- Load words of a given length from a dictionary file.  
+- Automatically build an array of valid words.  
+- User-friendly prompts for selecting the start and final words.  
+- Random word selection if too many invalid inputs are entered.  
+- BFS-based algorithm ensures the **shortest ladder** is found.  
+- Memory-safe (supports `valgrind` testing).  
+- Built-in testing mode (`-t` flag) for verifying functionality.  
 
-Utility functions for word handling, binary search, ladder copying, and memory management.
+---
 
-Built-in test functions for verifying correctness of core components.
+## Build & Run  
 
-A simple command-line interface for interactive use.
+```bash
+make build      # compile the program
+```
+```bash
+make run        # run the program interactively
+```
+```bash
+make run_test   # run built-in unit tests
+```
+```bash
+make run_redirect   # run with redirected input from testing.txt
+```
+```bash
+make valgrind   # run with Valgrind for memory check
+```
 
-Features
+---
 
-Load words of a given length from a dictionary file.
-
-Automatically build an array of valid words.
-
-User-friendly prompts for selecting the start and final words.
-
-Random word selection if too many invalid inputs are entered.
-
-BFS-based algorithm ensures the shortest ladder is found.
-
-Memory-safe (supports valgrind testing).
-
-Built-in testing mode (-t flag) for verifying functionality.
-
-Build & Run
-Build the program
-make build
-
-Run the program
-make run
-
-Run with redirected input (for testing with a file)
-make run_redirect
-
-Run in test mode (executes all unit tests)
-make run_test
-
-Run with Valgrind (to check memory safety)
-make valgrind
-
-Example Usage
+## Example Usage
 Welcome to the CS 211 Word Ladder Generator!
 
 Enter the word size for the ladder: 3
@@ -71,41 +67,11 @@ Shortest Word Ladder found!
         dog
 Word Ladder height = 4
 
-Testing
+---
 
-The program includes test functions for:
+## Requirements
+- GCC compiler 
+- Make
+- (Optional) Valgrind for memory testing
 
-countWordsOfLength()
 
-findWord()
-
-insertWordAtFront()
-
-getLadderHeight()
-
-copyLadder()
-
-insertLadderAtBack()
-
-popLadderFromFront()
-
-To run all tests:
-
-./app.exe -t
-
-Requirements
-
-GCC compiler
-
-Make
-
-(Optional) Valgrind
- for memory testing
-
-Notes
-
-Dictionary file must exist and contain words of the specified length.
-
-If the dictionary has fewer than 2 words of the given size, the program exits.
-
-User must ensure input dictionary is sorted for findWord() (binary search) to work correctly.
